@@ -3,7 +3,7 @@
 #   https://github.com/qbittorrent/qBittorrent/wiki/Running-qBittorrent-without-X-server#compile-from-source---how-to-disable-qbittorrents-gui
 #   https://discourse.osmc.tv/t/howto-update-compile-qbittorrent-nox/19726/3
 
-FROM emmercm/libtorrent:2.0@sha256:1e086a83e942b2a00074c3251a16285c1f5b95f9b75bf579f8d0dc91e1dba660
+FROM emmercm/libtorrent:2.0@sha256:94009249504cbaabb4af71fb3a9506094aec96b01a9d843c6ae78770b440250e
 
 ARG VERSION=4.4.[0-9]*
 
@@ -13,8 +13,8 @@ SHELL ["/bin/ash", "-euo", "pipefail", "-c"]
 
 # Build qbittorrent-nox
 # hadolint ignore=DL3003,DL3018
-RUN apk --update add --no-cache                              qt5-qtbase && \
-    apk --update add --no-cache --virtual build-dependencies boost-dev g++ gcc git make pkgconfig qt5-qttools-dev && \
+RUN apk --update add --no-cache                              qt6-qtbase && \
+    apk --update add --no-cache --virtual build-dependencies boost-dev g++ gcc git make pkgconfig qt6-qttools-dev && \
     # Checkout from source
     cd "$(mktemp -d)" && \
     git clone https://github.com/qbittorrent/qBittorrent.git && \
